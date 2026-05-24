@@ -95,7 +95,6 @@ function stopPoll(): void {
 }
 
 function handleStateChange(data: number): void {
-  const YT = window.YT!;
   switch (data) {
     case YT.PlayerState.PLAYING:
       setStatus('playing');
@@ -207,7 +206,6 @@ export function togglePlay(): void {
   if (!p || !state.videoId) return;
   state.hasInteracted = true;
 
-  const YT = window.YT!;
   const ps = p.getPlayerState();
   if (ps === YT.PlayerState.PLAYING) {
     p.pauseVideo();

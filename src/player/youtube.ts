@@ -64,9 +64,9 @@ export function createPlayer(host: HTMLElement): Promise<YT.Player> {
             iv_load_policy: 3,
           },
           events: {
-            onReady: (e) => resolve(e.target),
-            onStateChange: (e) => onState?.(e.data),
-            onError: (e) => onErr?.(e.data),
+            onReady: (e: { target: YT.Player }) => resolve(e.target),
+            onStateChange: (e: { data: number }) => onState?.(e.data),
+            onError: (e: { data: number }) => onErr?.(e.data),
           },
         });
       }),
